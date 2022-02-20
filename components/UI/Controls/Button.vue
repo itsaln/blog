@@ -20,7 +20,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-</style>

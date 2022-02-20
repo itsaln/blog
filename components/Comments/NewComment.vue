@@ -3,11 +3,10 @@
     <div class="container">
       <h2 class="title">New Comment:</h2>
       <form @submit.prevent="onSubmit" class="contact-form">
-        <label>Name:</label>
-        <input type="text" v-model="comment.name">
-        <label>Text:</label>
-        <textarea v-model="comment.text"></textarea>
-
+        <!-- name -->
+        <AppInput v-model="comment.name">Name:</AppInput>
+        <!-- text -->
+        <AppTextArea v-model="comment.text">Text:</AppTextArea>
         <!-- buttons -->
         <div class="controls">
           <AppButton>Submit!</AppButton>
@@ -19,10 +18,12 @@
 
 <script>
   import AppButton from '@/components/UI/Controls/Button'
+  import AppInput from '@/components/UI/Controls/Input'
+  import AppTextArea from '@/components/UI/Controls/TextArea'
 
   export default {
-    name: 'Contacts',
-    components: {AppButton},
+    name: 'NewComment',
+    components: {AppButton, AppInput, AppTextArea},
     data() {
       return {
         comment: {
@@ -48,6 +49,7 @@
       max-width: 600px;
       margin: 30px auto;
     }
+
     .controls {
       margin: 30px 0;
     }
