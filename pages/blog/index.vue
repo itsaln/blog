@@ -1,21 +1,20 @@
 <template>
   <div class="wrapper-content wrapper-content--fixed">
     <Promo/>
-    <Intro title="My last posts: "/>
+    <Intro title="My posts: "/>
     <PostsList :posts="posts"/>
     <Contacts/>
   </div>
 </template>
 
 <script>
-  import Promo from '@/components/Promo'
   import Intro from '@/components/UI/Intro'
   import PostsList from '@/components/Blog/PostsList'
   import Contacts from '@/components/Contacts'
 
   export default {
     name: 'index',
-    components: {Promo, Intro, PostsList, Contacts},
+    components: {Intro, PostsList, Contacts},
     data() {
       return {
         posts: [
