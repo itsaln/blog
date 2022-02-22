@@ -2,6 +2,7 @@
   <section class="intro">
     <div class="container">
       <h2>{{ title }}</h2>
+      <slot/>
     </div>
   </section>
 </template>

@@ -1,19 +1,11 @@
 <template>
-  <div class="wrapper-content wrapper-content--fixed">
-    <promo/>
-    <Intro title="My posts: "/>
-    <PostsList :posts="posts"/>
-    <contacts/>
-  </div>
+  <PostsList :posts="posts"/>
 </template>
 
 <script>
-  import promo from '@/components/Promo'
-  import contacts from '@/components/Contacts'
-
   export default {
     name: 'index',
-    components: {promo, contacts},
+    layout: 'admin',
     data() {
       return {
         posts: [

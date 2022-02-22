@@ -2,6 +2,11 @@
   cursor: pointer;
   border-bottom: 1px solid #9aa4d6;
   color: #4343aa;
+  margin-right: 12px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   &.linkWhite {
     border-bottom: 1px solid #fff;
