@@ -2,7 +2,7 @@
   <section class="posts-list">
     <div class="container">
       <div class="posts__wrapper">
-        <PostPreview v-for="post in posts" :key="post.id" :post="post"/>
+        <PostPreview v-for="post in posts" :key="post.id" :post="post" :admin="admin"/>
       </div>
     </div>
   </section>
@@ -18,6 +18,10 @@
       posts: {
         type: Array,
         required: true
+      },
+      admin: {
+        type: Boolean,
+        default: false
       }
     }
   }

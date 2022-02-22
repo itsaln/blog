@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="/blog/+post.id" class="post-preview">
+  <nuxt-link :to="getLink" class="post-preview">
     <img :src="post.img" :alt="post.title">
     <div class="post-content">
       <h3 class="title">{{ post.title }}</h3>
@@ -15,6 +15,15 @@
       post: {
         type: Object,
         required: true
+      },
+      admin: {
+        type: Boolean,
+        default: false
+      }
+    },
+    computed: {
+      getLink() {
+        return this.admin ? `/admin/${this.post.id}` : `/blog/${this.post.id}`
       }
     }
   }

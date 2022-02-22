@@ -20,9 +20,14 @@
 <script>
   export default {
     name: 'NewPostFrom',
+    props: {
+      postEdit: {
+        type: Object
+      }
+    },
     data() {
       return {
-        post: {
+        post: this.postEdit ? {...this.postEdit} : {
           title: '',
           description: '',
           img: '',
