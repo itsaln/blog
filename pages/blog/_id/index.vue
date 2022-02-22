@@ -1,19 +1,19 @@
 <template>
   <div class="wrapper-content wrapper-content--fixed">
-    <Post :post="post"/>
-    <Comments :comments="comments"/>
-    <NewComment/>
+    <post :post="post"/>
+    <comments :comments="comments"/>
+    <newComment/>
   </div>
 </template>
 
 <script>
-  import Post from '@/components/Blog/Post'
-  import NewComment from '@/components/Comments/NewComment'
-  import Comments from '@/components/Comments/Comments'
+  import post from '@/components/Blog/Post'
+  import newComment from '@/components/Comments/NewComment'
+  import comments from '@/components/Comments/Comments'
 
   export default {
     name: 'index',
-    components: {Comments, NewComment, Post},
+    components: {comments, newComment, post},
     data() {
       return {
         post: {

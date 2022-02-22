@@ -20,11 +20,8 @@
 </template>
 
 <script>
-  import Intro from '@/components/UI/Intro'
-
   export default {
-    name: 'index',
-    components: {Intro}
+    name: 'index'
   }
 </script>
 

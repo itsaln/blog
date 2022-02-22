@@ -17,7 +17,9 @@ export default {
   css: [
     {src: '~/assets/scss/main.scss', lang: 'scss'}
   ],
-  plugins: [],
+  plugins: [
+    '~plugins/app-components.js'
+  ],
   components: true,
   buildModules: [],
   modules: [],
