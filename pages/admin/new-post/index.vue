@@ -11,8 +11,10 @@
     components: {newPostFrom},
     methods: {
       onSubmit(post) {
-        console.log('Post added!')
-        console.log(post)
+        this.$store.dispatch('addPost', post)
+          .then(() => {
+            this.$router.push('/admin')
+          })
       }
     }
   }

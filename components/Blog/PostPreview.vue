@@ -32,7 +32,7 @@
 <style lang="scss">
 
   .post-preview {
-    max-width: 33.33333%;
+    width: 33.33333%;
     padding: 16px;
     margin-bottom: 20px;
     text-align: center;
