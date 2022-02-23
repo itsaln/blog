@@ -42,7 +42,7 @@
       onSubmit() {
         this.$store.dispatch('addComment', {
           postId: this.postId,
-          publish: true,
+          publish: false,
           ...this.comment
         })
           .then(() => {
