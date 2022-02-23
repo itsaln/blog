@@ -2,11 +2,12 @@
   <div class="wrapper-content wrapper-content--fixed">
     <post :post="post"/>
     <comments :comments="comments"/>
-    <newComment/>
+    <newComment :postId="$route.params.id"/>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
   import post from '@/components/Blog/Post'
   import newComment from '@/components/Comments/NewComment'
   import comments from '@/components/Comments/Comments'
@@ -14,19 +15,18 @@
   export default {
     name: 'index',
     components: {comments, newComment, post},
-    data() {
+    async asyncData(context) {
+      let [post, comments] = await Promise.all([
+        axios.get(`https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${context.params.id}.json`),
+        axios.get(`https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/comments.json`)
+      ])
+
+      let commentsArrayRes = Object.values(comments.data)
+        .filter(comment => (comment.postId === context.params.id) && !!comment.publish)
+
       return {
-        post: {
-          id: 1,
-          title: 'Post 1',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
-          content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet beatae consequuntur deleniti dolore enim et excepturi harum ipsam labore laudantium numquam perspiciatis, provident quis quo quos rem, totam ullam.',
-          img: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-        },
-        comments: [
-          {name: 'Alex', text: 'Lorem ipsum dolor sit amet, consectetur'},
-          {name: 'Charlie', text: 'Lorem ipsum dolor sit amet, consectetur'}
-        ]
+        post: post.data,
+        comments: commentsArrayRes
       }
     }
   }

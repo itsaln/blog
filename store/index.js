@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 export const state = () => ({
-  postsLoaded: []
+  postsLoaded: [],
+  commentsLoaded: []
 })
 
 export const mutations = {
@@ -14,6 +15,10 @@ export const mutations = {
   editPost(state, postEdit) {
     const postIndex = state.postsLoaded.findIndex(post => post.id === postEdit.id)
     state.postsLoaded[postIndex] = postEdit
+  },
+  addComment(state, comment) {
+    console.log(comment)
+    state.commentsLoaded.push(comment)
   }
 }
 
@@ -34,7 +39,6 @@ export const actions = {
   addPost({commit}, post) {
     return axios.post('https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json', post)
       .then(({data}) => {
-        console.log(data)
         commit('addPost', {...post, id: data.name})
       })
       .catch(e => console.log(e))
@@ -43,6 +47,14 @@ export const actions = {
     return axios.put(`https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${post.id}.json`, post)
       .then(({data}) => {
         commit('editPost', post)
+      })
+      .catch(e => console.log(e))
+  },
+  addComment({commit}, comment) {
+    return axios.post('https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/comments.json', comment)
+      .then(({data}) => {
+        console.log(data)
+        commit('addComment', {...comment, id: data.name})
       })
       .catch(e => console.log(e))
   }
