@@ -9,8 +9,8 @@
 
         <!-- buttons -->
         <div class="controls">
-          <AppButton class="btnDanger" @click="cancel">Cancel</AppButton>
-          <AppButton @click="onSubmit">Save</AppButton>
+          <div @click="cancel" class="btn btnDanger">Cancel</div>
+          <AppButton>Save</AppButton>
         </div>
       </form>
     </div>

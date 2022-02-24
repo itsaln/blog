@@ -26,9 +26,16 @@
     },
     methods: {
       onSubmit() {
-        // Reset
-        this.user.email = ''
-        this.user.password = ''
+        this.$store.dispatch('authUser', this.user)
+          .then(() => {
+            this.$router.push('/admin')
+          })
+          .catch(e => {
+            console.log(e)
+            // Reset
+            this.user.email = ''
+            this.user.password = ''
+          })
       }
     }
   }
