@@ -17,6 +17,10 @@ export default {
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
+  },
   css: [
     {src: '~/assets/scss/main.scss', lang: 'scss'}
   ],
