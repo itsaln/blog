@@ -46,13 +46,23 @@ export const actions = {
       returnSecureToken: true
     })
       .then(({data}) => {
-        commit('setToken', data.idToken)
+        let token = data.idToken
+        commit('setToken', token)
+        localStorage.setItem('token', token)
         return data
       })
       .catch(e => console.log(e))
   },
+  initAuth({commit}) {
+    let token = localStorage.getItem('token')
+    if (!token) {
+      return false
+    }
+    commit('setToken', token)
+  },
   logoutUser({commit}) {
     commit('clearToken')
+    localStorage.removeItem('token')
   },
   addPost({commit}, post) {
     return axios.post('https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json', post)
