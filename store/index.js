@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Cookie from 'js-cookie'
 
 export const state = () => ({
   postsLoaded: [],
@@ -48,21 +49,35 @@ export const actions = {
       .then(({data}) => {
         let token = data.idToken
         commit('setToken', token)
+        // to local storage
         localStorage.setItem('token', token)
+        // to local cookie
+        Cookie.set('jwt-token', token)
         return data
       })
       .catch(e => console.log(e))
   },
-  initAuth({commit}) {
-    let token = localStorage.getItem('token')
-    if (!token) {
-      return false
+  initAuth({commit}, req) {
+    let token
+
+    if (req) {
+      if (!req.headers.cookie) return false
+      const jwtCookie = req.headers.cookie
+        .split(';')
+        .find(t => t.trim().startsWith('jwt-token='))
+      if (!jwtCookie) return false
+      token = jwtCookie.split('=')[1]
+    } else {
+      token = localStorage.getItem('token')
+      if (!token) return false
     }
+
     commit('setToken', token)
   },
   logoutUser({commit}) {
     commit('clearToken')
     localStorage.removeItem('token')
+    Cookie.remove('jwt-token')
   },
   addPost({commit}, post) {
     return axios.post('https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json', post)
