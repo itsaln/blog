@@ -1,3 +1,4 @@
+import axios from 'axios'
 import pkg from './package'
 
 export default {
@@ -43,5 +44,21 @@ export default {
       'vue',
       'axios'
     ]
+  },
+  generate: {
+    routes: function () {
+      return axios.get('https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
+        .then(({data}) => {
+          // Get id
+          const postsArray = []
+          for (let key in data) {
+            postsArray.push({...data[key], id: key})
+          }
+          // Routes
+          return postsArray.map(post => {
+            return '/blog/' + post.id
+          })
+        })
+    }
   }
 }
