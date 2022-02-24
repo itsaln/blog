@@ -1,0 +1,20 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /*.pdf
+Disallow: /*.doc
+Disallow: /*?*
+Sitemap: https://site.com/sitemap.xml
+
+User-agent: Googlebot
+Disallow: /admin/
+Disallow: /*.pdf
+Disallow: /*.doc
+Disallow: /*?*
+
+User-agent: Yandex
+Disallow: /admin/
+Disallow: /*.pdf
+Disallow: /*.doc
+Disallow: /*?*
+Host: https://site.com
+Sitemap: https://site.com/sitemap.xml
