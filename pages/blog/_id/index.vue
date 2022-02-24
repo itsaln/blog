@@ -15,6 +15,23 @@
   export default {
     name: 'index',
     components: {comments, newComment, post},
+    head() {
+      let title = this.post.title,
+        description = this.post.description,
+        img = `${this.post.img}`,
+        type = 'article'
+
+      return {
+        title: title,
+        meta: [
+          {hid: 'og:title', name: 'og:title', content: title},
+          {hid: 'description', name: 'description', content: description},
+          {hid: 'og:description', name: 'og:description', content: description},
+          {hid: 'og:type', name: 'og:type', content: type},
+          {hid: 'og:img', name: 'og:img', content: img}
+        ]
+      }
+    },
     async asyncData(context) {
       let [post, comments] = await Promise.all([
         axios.get(`https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${context.params.id}.json`),

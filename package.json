@@ -1,5 +1,7 @@
 {
   "name": "blog",
+  "description": "My badass Nuxt.js project",
+  "author": "Scorp",
   "version": "1.0.0",
   "private": true,
   "scripts": {

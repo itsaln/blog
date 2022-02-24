@@ -21,7 +21,22 @@
 
 <script>
   export default {
-    name: 'index'
+    name: 'index',
+    head() {
+      let title = 'About My SSR Blog!',
+        description = 'About My SSR Blog! With Nuxt.js!',
+        type = 'site'
+
+      return {
+        title: title,
+        meta: [
+          {hid: 'og:title', name: 'og:title', content: title},
+          {hid: 'description', name: 'description', content: description},
+          {hid: 'og:description', name: 'og:description', content: description},
+          {hid: 'og:type', name: 'og:type', content: type}
+        ]
+      }
+    }
   }
 </script>
 
