@@ -55,6 +55,7 @@
     max-width: 900px;
     margin: 0 auto;
   }
+
   .post-header {
     text-align: center;
     margin-bottom: 30px;
@@ -63,10 +64,12 @@
       max-width: 600px;
       margin-bottom: 16px;
     }
+
     p {
       color: #999;
     }
   }
+
   .post-body {
     text-align: left;
   }

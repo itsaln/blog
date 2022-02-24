@@ -22,8 +22,7 @@
       return {
         links: [
           {title: 'Blog', url: '/blog'},
-          {title: 'About', url: '/about'},
-          {title: 'Admin', url: '/admin'}
+          {title: 'About', url: '/about'}
         ]
       }
     }
