@@ -38,5 +38,10 @@ export default {
     //     // accurateTrackBounce: true
     //   }]
   ],
-  build: {}
+  build: {
+    vendor: [
+      'vue',
+      'axios'
+    ]
+  }
 }
