@@ -27,7 +27,7 @@ export const mutations = {
 
 export const actions = {
   nuxtServerInit({commit}, context) {
-    return axios.get('https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
+    return axios.get('https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
       .then(({data}) => {
         // Get id
         const postsArray = []
@@ -40,7 +40,7 @@ export const actions = {
       .catch(e => console.log(e))
   },
   authUser({commit}, authData) {
-    const key = 'AIzaSyDSjF3RM-pzO7mo0OtP7IrSOR4n01Oftuo'
+    const key = 'AIzaSyDfQakmvrNYnt-4YTX0oqhH7PKFAcyl0Io'
     return axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${key}`, {
       email: authData.email,
       password: authData.password,
@@ -80,21 +80,21 @@ export const actions = {
     Cookie.remove('jwt-token')
   },
   addPost({commit}, post) {
-    return axios.post('https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json', post)
+    return axios.post('https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json', post)
       .then(({data}) => {
         commit('addPost', {...post, id: data.name})
       })
       .catch(e => console.log(e))
   },
   editPost({commit, state}, post) {
-    return axios.put(`https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${post.id}.json?auth=${state.token}`, post)
+    return axios.put(`https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${post.id}.json?auth=${state.token}`, post)
       .then(({data}) => {
         commit('editPost', post)
       })
       .catch(e => console.log(e))
   },
   addComment({commit}, comment) {
-    return axios.post('https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/comments.json', comment)
+    return axios.post('https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/comments.json', comment)
       .catch(e => console.log(e))
   }
 }

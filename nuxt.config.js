@@ -51,7 +51,7 @@ export default {
   },
   generate: {
     routes: function () {
-      return axios.get('https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
+      return axios.get('https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
         .then(({data}) => {
           // Get id
           const postsArray = []

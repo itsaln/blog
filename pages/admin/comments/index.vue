@@ -35,7 +35,7 @@
     },
     methods: {
       loadComments() {
-        axios.get('https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/comments.json')
+        axios.get('https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/comments.json')
           .then(({data}) => {
             let commentsArray = []
             Object.keys(data).forEach(key => {
@@ -47,10 +47,10 @@
       },
       changeComment(comment) {
         comment.publish = !comment.publish
-        axios.put(`https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/comments/${comment.id}.json`, comment)
+        axios.put(`https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/comments/${comment.id}.json`, comment)
       },
       deleteComment(id) {
-        axios.delete(`https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/comments/${id}.json`)
+        axios.delete(`https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/comments/${id}.json`)
           .then(({data}) => this.loadComments())
       }
     }

@@ -14,7 +14,7 @@
     layout: 'admin',
     components: {newPostFrom},
     asyncData(context) {
-      return axios.get(`https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${context.params.postId}.json`)
+      return axios.get(`https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${context.params.postId}.json`)
         .then(({data}) => {
           return {
             post: {...data, id: context.params.postId}

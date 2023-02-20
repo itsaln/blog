@@ -1,9 +1,14 @@
 {
   "name": "blog",
   "description": "My badass Nuxt.js project",
-  "author": "scripac",
-  "version": "1.0.0",
+  "author": {
+    "email": "itsaln23@gmail.com",
+    "name": "Aladin itsaln.web.app",
+    "url": "https://itsaln.web.app"
+  },
   "private": true,
+  "license": "UNLICENSED",
+  "version": "1.0.0",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",

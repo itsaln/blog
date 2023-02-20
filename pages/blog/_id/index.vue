@@ -34,8 +34,8 @@
     },
     async asyncData(context) {
       let [post, comments] = await Promise.all([
-        axios.get(`https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${context.params.id}.json`),
-        axios.get(`https://blog-4e585-default-rtdb.asia-southeast1.firebasedatabase.app/comments.json`)
+        axios.get(`https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${context.params.id}.json`),
+        axios.get(`https://blog-971a5-default-rtdb.asia-southeast1.firebasedatabase.app/comments.json`)
       ])
 
       let commentsArrayRes = Object.values(comments.data)
